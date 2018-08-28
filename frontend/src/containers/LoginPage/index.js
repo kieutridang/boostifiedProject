@@ -2,12 +2,22 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import InstagramLogin from 'react-instagram-login';
+import axios from 'axios';
 
 // components
 import Settings from '../../config/settings'
 
 const responseInstagram = (response) => {
-    console.log(response)
+    const token = response
+    console.log(token)
+    const data = {
+        token: token
+    }
+    
+    axios.post(`${Settings.baseSocialAuthServerUrl}/instagramer/instagram`, {data}).then(res => {
+
+    })
+    
 }
 
 class LoginPage extends Component {
